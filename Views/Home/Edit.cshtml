@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Dish</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body class="bg-light">
+    <div class="container shadow p-4 mt-4 bg-white">
+    @using CRUDelicious.Models;
+    <h4 style="text-decoration: underline;" class="mt-4 mb-4"><a href="/">Home</a></h4>
+    @model Dish
+    <h2 class="text-center display-4">Edit @Model.DishName</h2>
+    <form asp-action="editDish" asp-controller="Home" method="post">
+        <div class="row form-group">
+            <div class="col">
+                <div>
+                <label class="mt-4" asp-for="ChefName"></label>
+                <input class="form-control" asp-for="ChefName">
+                <span style="color: red;" asp-validation-for="ChefName"></span>
+                </div>
+                <div>
+                <label class="mt-4" asp-for="DishName"></label>
+                <input class="form-control" asp-for="DishName">
+                <span style="color: red;" asp-validation-for="DishName"></span>
+                </div>
+                <div>
+                <label class="mt-4" asp-for="Calories"></label>
+                <input class="form-control" type="number" min="0" asp-for="Calories">
+                <span style="color: red;" asp-validation-for="Calories"></span>
+                </div>
+            </div>
+            <div class="col text-center m-4">
+                <label class="mt-4" asp-for="Tastiness"></label>
+                <select asp-for="Tastiness" class="text-center" name="Tastiness" id="Tastiness" required>
+                    <option value="0">--</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <div>
+                <span style="color: red;" asp-validation-for="Tastiness"></span>
+                </div>
+            </div>
+            <div class="col">
+                <label class="mt-4" asp-for="Description">Description:</label>
+                <textarea asp-for="Description" class="form-control" name="Description" id="Description" cols="30" rows="8"></textarea>
+                <span style="color: red;" asp-validation-for="Description"></span>
+
+                <input class="btn btn-primary m-4" value="Update Dish!" type="Submit">
+            </div>
+        </div>
+    </form>
+    </div>
+</body>
+</html>

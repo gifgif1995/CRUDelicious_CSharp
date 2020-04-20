@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body class="bg-light">
+    @using CRUDelicious.Models;
+    <div class="container shadow p-4 mt-4 bg-white">
+        <h1 class="m-4 display-3 text-center">Welcome to CRUDelicious</h1>
+            <div class="row m-4 p-4">
+                <div class="col">
+                    <h4 class="text-center">Check out some recent Dishes! </h4> 
+                    <hr>
+                    @model List<Dish>
+                    @{
+                        foreach(var dish in @Model)
+                        {
+                            <h4><a href = @dish.ID>@dish.DishName</a> by @dish.ChefName</h4>
+                        }
+                    }
+                </div>  
+                <div class="col">
+                    <h4 class="text-center"><a href="new">Add a Dish</a></h4>
+                </div>
+            </div>
+    </div>
+</body>
+</html>

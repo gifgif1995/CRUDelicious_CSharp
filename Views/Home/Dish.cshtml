@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dish</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body class="bg-light">
+    <div class="container shadow p-4 mt-4 bg-white">
+        @using CRUDelicious.Models;
+        <h4 style="text-decoration: underline;" class="mt-4 mb-4"><a href="/">Home</a></h4>
+        @model Dish
+        <h1 class="text-center display-4">@Model.DishName !</h1>
+        <h3 style="color: blue;" class="text-center">By: @Model.ChefName</h2>
+        <hr>
+        <div>
+            <h4 class="mt-4 mb-4 ml-4">@Model.Description</h4>
+        </div>
+        <hr>
+        <div>
+            <h3>Calories: @Model.Calories</h3>
+        </div>
+        <div>
+            <h3>Tastiness: @Model.Tastiness</h3>
+        </div>
+        <br>
+            <div class="row">
+                <div class="col">
+                    <a class="btn btn-danger" href="delete/@Model.ID">Delete</a>
+                    <a class="btn btn-warning ml-4" href="/edit/@Model.ID">Edit</a>
+                </div>
+
+                <div class="col">
+
+                </div>
+            </div>
+    </div>
+</body>
+</html>
